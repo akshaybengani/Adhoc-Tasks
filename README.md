@@ -136,13 +136,48 @@ print("Number of Chars      :   ",charCount)
 Notes for Day 4 are mentioned [here](https://github.com/akshaybengani/Adhoc-Notes/blob/master/Day4.md) in detail.
 ## Task 18 Connect RedHat with GUI
 *   Pending
+# Day 5
+Notes for Day 5 are mentioned [here](https://github.com/akshaybengani/Adhoc-Notes/blob/master/Day5.md) in detail.
 ## Task 19 Write code in python to connect to SSH without putty
 *   Pending
 ## Task 20 How to remove read and write permission from a file or directory for root or admin user
 *   Pending
-## List how many people are in a group find that list
-*   
-*   For more information click [here](https://www.cyberciti.biz/faq/linux-list-all-members-of-a-group/)
+## Task 21 List how many people are in a group find that list
+*   To find this there is a command called ```lid``` for this.
+```
+lid GROUPNAME
+```
+*  This will list all the users connected in the group, For more information click [here](https://www.cyberciti.biz/faq/linux-list-all-members-of-a-group/)
+## Task 22 How to add multiple users in a group at once
+*   For this I have developed a program for performing this task
+```py
+# usermod -G tech username
+import subprocess
+usernames = input("Enter names of users seperated with commas\n")
+groupname = input("Enter group name ")
+nameList = usernames.split(',')
+
+for name in nameList:
+    cmdString = "usermod -G "+groupname+" "+name
+    print(cmdString)
+    subprocess.getoutput(cmdString)
+```
+*   Enter the users name seperated by commas and then enter the group name and you are done.
+# Day 6
+Notes for Day 6 are mentioned [here](https://github.com/akshaybengani/Adhoc-Notes/blob/master/Day6.md) in detail.
+## Task 23 Copy all RAM data to Secondary Storage and use that data
+*   Pending
+## Task 24 Find number of users connected in your wifi networks and show thier IP and MAC
+*   Pending
+## Task 25 Write a code that will create 100 files and 200 directories
+*   Pending
+## Task 26 write a program to list number of users present in linux based os
+*   Pending
+## Task 27 Take 10 commands randomally from a user and check it of it is present then run it otherwise give voice based error message
+*   Pending
+## Task 28 Build a Qr code reader in python to scan the value and print it
+*   Pending
+
 
 
 
