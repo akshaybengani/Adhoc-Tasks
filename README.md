@@ -175,6 +175,8 @@ Notes for Day 6 are mentioned [here](https://github.com/akshaybengani/Adhoc-Note
 *   Pending
 ## Task 27 Take 10 commands randomally from a user and check it of it is present then run it otherwise give voice based error message
 *   Pending
+# Day 10
+Notes for Day 10 are mentioned [here](https://github.com/akshaybengani/Adhoc-Notes/blob/master/Day10.md) in detail.
 ## Task 28 Build a Qr code reader in python to scan the value and print it
 *   Pending
 
