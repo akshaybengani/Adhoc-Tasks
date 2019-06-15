@@ -182,9 +182,6 @@ Notes for Day 10 are mentioned [here](https://github.com/akshaybengani/Adhoc-Not
 ## Task 29 Study about Web-Server
 * Pending
 
-# Day 7
-Notes for Day 7 are mentioned [here](https://github.com/piyushagarwal08/Adhoc-ST-2019-/blob/master/DAY7.md) in detail
-
 ## Task 30 Make a camera working to connect with other OS
 * Pending
 
