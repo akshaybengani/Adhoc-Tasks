@@ -344,20 +344,21 @@ for i in charArray:
 3. goodafter noon , good night as per the current time your system :
 
 ```python
-#!/usr/bin/python3
-import time
-name = input('Enter your name: ')
-hr = time.localtime().tm_hour
-min = time.localtime().tm_min
+import os
 
-if hr>=12 and hr<17:
-	print('Good Afternoon',name)
-elif hr>=17 and hr<20:
-	print('Good Evening',name)
-elif hr>=20 and hr<24:
-	print('Good Night',name)
-else:
-	print('Good Morning',name)
+time = os.popen('date +%H').readlines()
+time = int(time[0])
+
+if (time >= 6 and time <= 12):
+    print("Good Morning")
+elif(time > 12 and time <= 17):
+    print("Good Afternoon")
+elif(time > 17 and time <= 20):
+    print("Good Evening")
+elif (time > 20 and time <=23):
+    print("Good Night")
+elif (time > 0 and time < 6):
+    print("Good Night")
 ```
 
 ## Task 37 use file handling to create a linux command  similar to cat .test at least  4 cases and options of cat command, compare the difference of cat command and post the result
