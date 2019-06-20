@@ -3,8 +3,9 @@ str=$(cat /proc/cpuinfo | head -n 5 | tail -n 1)
 pro_info=${str#*:}
 
 # To get Total Ram
-str=$(free -tm | head -n 2 | tail -n 1)
-total_ram=$(echo ${str#*:} | awk '{print $1}')
+#str=$(free -tm | head -n 2 | tail -n 1)
+#total_ram=$(echo ${str#*:} | awk '{print $1}')
+total_ram=$(cat /proc/meminfo | grep -w "MemTotal" | awk -F: '{print $2}')
 
 # To get Total Swap
 str=$(free -tm | head -n 3 | tail -n 1)

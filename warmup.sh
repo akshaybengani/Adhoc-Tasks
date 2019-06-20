@@ -24,6 +24,9 @@ mkdir /home2
 # Mount the disk in home2
 mount /dev/mapper/myvir-mypart /home2
 
+# Add Entry in Fstab
+# echo "" > /etc/fstab
+
 # Create user blu with home directory /home2
 useradd -b /home2 blu
 
