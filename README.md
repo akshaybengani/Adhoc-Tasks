@@ -552,6 +552,211 @@ for i in search(url,stop=3):
   ```  
   This will permanently disable the 'tel' repo which contains the url for telnet package.
 
+# DAY 12
+Notes for Day 12 are mentioned [here](https://github.com/piyushagarwal08/Adhoc-ST-2019-/blob/master/DAY12.md) in detail
+
+# DAY 13
+Notes for Day 13 are mentioned [here](https://github.com/piyushagarwal08/Adhoc-ST-2019-/blob/master/DAY13.md) in detail
+
+# DAY 14
+Notes for Day 14 are mentioned [here](https://github.com/piyushagarwal08/Adhoc-ST-2019-/blob/master/DAY14.md) in detail
+
+## Task 45 Create your own module with following options : i)   after  importing  it must say your name in voice, ii)   it must greet you according to current time, for example:  if it is morning 9 AM it must say  good morning,  iii)  it must offer for adding  numbers as per user need, iv)   it also offer sorting of numbers, v)    it can also print number of installed module
+ ```python
+ import pyttsx3
+ import time
+ import os
+
+ def speak(x):
+     tts = pyttsx3.init()
+     tts.say(x)
+     tts.runAndWait()
+ speak('Welcome Pykid')
+
+ def greet(x):
+     if hour < 12:
+         return 'good morning'
+     elif hour < 16 and hour >= 12:
+         return 'good afternoon'
+     elif hour <20 and hour >= 16:
+         return "good evening"
+     else:
+         return "good night"
+ hour=time.localtime().tm_hour
+ wish = greet(hour)
+ speak(wish)
+ print('''
+ 1. type add(4,5,3,6) to add any amount of numbers
+ 2. type sort_num(4,5,3,5,2,4) to sort list of numbers
+ 3. type module() to list installed modules
+ ''')
+
+ def add(*x):
+     return sum(x)
+
+
+ def sort_num(*x):
+     return sorted(x)
+
+ def module():
+     os.system('pip3 list')
+ ```
+
+## Task 46 Adhocdocker1: i)   create your own docker image, ii)  it must use 80 port, iii)  host  a php  based sample web page, iv)   container must be running  on top of aws cloud
+ * pending
+
+## Task 47 take rows and column input from user and calculate how many rows and column combination are possible, factor of each number and find all possible array combination
+ ```python
+ #!/usr/bin/python3
+
+ from itertools import product
+ row =  int(input('Enter number of rows: '))
+ column = int(input('Enter number of columns: '))
+
+ def factor(x):
+ 	list1 = [i for i in range(1,x+1) if x % i == 0]
+ 	return list1
+ print('All possible array combinations are: ')
+ for i in product(factor(row),factor(column)):
+ 	print(i)
+
+ ```
+
+## Task 48 Generate 3x2 and 2x5  2D array with random element and save this data into two seperate files and print the data
+ ```python
+ import numpy as np
+
+ a = np.random.random_integers(low=1,high=100,size=(3,2))
+ b = np.random.random_integers(low=1,high=100,size=(2,5))
+ np.savetxt('3x2.csv',a)
+ np.savetxt('2x5.csv',b)
+ print(a)
+ print(b)
+ ```
+
+## Task 49 Revise numpy and matplotlib and revise requests module
+ * done
+
+## Task 50 create 2D numpy  based array with given conditions: i)   take input from user in terms of dimension like (3x2 or 6x7), ii)   fill this numpy array with random number, iii)  store this array in a file
+ ```python
+ import numpy as np
+ row,column = input().split('x')
+ array1 = np.random.random((int(row),int(column)))
+ np.savetxt('array.txt',array1)
+ y = np.loadtxt('array.txt')
+ print(y)
+ ```
+
+## Task 51 create a numpy array of  8x2 as having number  in each cell between 100 and 200 such that difference between each element is 5
+ ```python
+ import numpy as np
+
+ x = np.arange(100,200,5)
+ x = x[0:16].reshape(8,2)
+ print(x)
+ ```
+
+## Task 52 visualize data graphs i)  take input from  a file where you have 4 rows and 5 columns, ii)  columns having - student_name , marks , age , contact , study_hours, iii)  visualize this data as pie chart, iv)  file name must  student.csv with all column separated by ','
+ ```python
+ import pandas as pd
+ import matplotlib.pyplot as plt
+
+ data = {'student_name': ['Piyush','Saksham','Shivam','Akshay'],'marks':[76,89,96,99],'age':[20,20,21,21],'contact':['8749573948','3847563947','7480384729','9485736402'],'study_hours':[10,6,8,23]}
+
+ student = pd.DataFrame(data,columns=['student_name','marks','age','contact','study_hours'])
+ print(student)
+ plt.pie(student['marks'],labels=student['student_name'])
+ ```
+
+## Task 53 Generate 3x2 and 2x5  2D array with random element and save this data into two seperate files and print the data
+ ```python
+ a = np.random.random_integers(low=1,high=100,size=(3,2))
+ print(a)
+ b = np.random.random_integers(low=1,high=100,size=(2,5))
+ print(b)
+ np.savetxt('3x2.csv',a)
+ np.savetxt('2x5.csv',b)
+ ```
+
+## Task 54 plot  graphs given below in python3 with following data, i) calculate the internet speed from any web site you want, ii)  graph the result as guage graph, iii) it must move as per the speed changes
+  * Pending
+
+## Task 55 use this data from pandas, i) data source http://13.234.66.67/summer19/datasets/bank.csv ii) read this data by pandas iii) plot all the possible graphs iv) use all possible combination of all columns
+
+```python
+import pandas as pd
+import matplotlib.pyplot as plt
+read = pd.read_csv('http://13.234.66.67/summer19/datasets/bank.csv')
+read.head(5)
+plt.pie(read['CustomerId'].head(5),labels=read['CreditScore'].head(5),explode=[0.1,0.2,0.1,0.2,0.1],shadow=True)
+plt.bar(read['Surname'].head(9),read['CreditScore'].head(9),label='Enjoy')
+plt.scatter(read['Surname'].head(9),read['CreditScore'].head(9),label='Enjoy')
+plt.plot(read['Surname'].head(9),read['CreditScore'].head(9),label='Enjoy')
+plt.hist2d(read['Balance'].head(9),read['CreditScore'].head(9),label='Enjoy')
+plt.hist(read['Surname'].head(9),label='Enjoy')
+plt.stackplot(read['Surname'].head(10),read['CreditScore'].head(10),read['Balance'].head(10),color=['b'])
+```
+
+## Task 56 write the code will follow conditions, i) scrape data of the url https://en.wikipedia.org/wiki/Machine_learning ii) count all the words after scraping iii) plot the pie and bar plot of top 20 repeated words iv) plot scatter graph of all the words having presence more 3 times in scraped data v) show stack plot of all the links that are present in above URL
+
+```python
+import requests
+from bs4 import BeautifulSoup
+url =  'https://en.wikipedia.org/wiki/Machine_learning'
+r = requests.get(url)
+html = r.text
+soup = BeautifulSoup(html, "html5lib")
+text = soup.get_text().rstrip()
+import nltk #natural language tool kit
+token = nltk.RegexpTokenizer('\w+') #creating an object to found words by regex \w+
+word_list = token.tokenize(text)   # list all words differently without any tags
+word = nltk.FreqDist(word_list)     # does the work of Counter and makes a dictionary
+nltk.FreqDist(word).plot(20)
+from matplotlib import pyplot as plt
+task = {}
+for i in sorted(word,key=word.get,reverse=True):
+
+  task[i] = word[i]
+keys = []
+values = []
+for i,j in task.items():
+  keys.append(i)
+  values.append(j)
+  if len(keys) == 20:
+    break
+# sorted the dictionary based on values and created two list of top 20 values
+plt.pie(values,labels=keys)
+```
+## Task 57 Study that what is ID3 and CART and graphviz.
+  * pending
+
+## Task 58 Design a UI in Html asking a button upload.The file it will accept is JSON CSV or EXCEL, When upload completes it will show the data in form of tables using pandas.It will ask from a dropdown regarding which algorithm to use, It will then ask for testing data percentage again in options menu, If the classifier is KNN then it should ask for K value, After clicking submit it will show a graph plotting the data either on bar Scatter pie ask from user at that point or in previous page.
+  * pending
+
+## Task 59 write supervised  machine learning code to predict minimum death, Note:  find data of titanic from kaggle or any relevant datasource, apply supervised machine learning with your choice of classifier
+  * pending
+
+## Task 60 write python code to connect with gmail,yahoo,outlook,hotmail and finds the top 10 messages / mail and copy its from email , subject, body into text files using this data classify mail to be spam or ham
+  ```python
+  import imaplib
+  import email
+
+  mail = imaplib.IMAP4_SSL('imap.gmail.com')
+  mail.login('hrssharma001@gmail.com','harshjatt12')
+  mail.select('INBOX')
+  result,data = mail.search(None,"ALL")
+  id_list = data[0].split()
+  latest_mail = id_list[-1]
+  result,data = mail.fetch(latest_mail,"(RFC822)")
+  raw_mail = data[0][1]
+  message = email.message_from_string(raw_mail)
+  with open('latest_mail.txt','w+') as file:
+      file.write(str(message))
+  print 'From: ' + message['From']
+  print 'To: ' + message['To']
+  print 'Subject: ' + message['Subject']
+
+  ```
 
 
 

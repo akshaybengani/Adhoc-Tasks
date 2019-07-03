@@ -3,7 +3,7 @@ sudo -i
 
 # To update current packages and install all required
 yum update -y
-yum install lvm2 git vim wget httpd httpd-tools mod_ssl php centos-release sysstat -y
+yum install lvm2 git vim wget httpd httpd-tools centos-release-scl mod_ssl php sysstat -y
 
 # Default disk name is /dev/xvdb
 # Create physical volume
@@ -32,6 +32,14 @@ useradd -b /home2 blu
 
 # Delete blu password
 passwd -d blu
+
+
+ssh-keygen -N "" -f /home2/blu.ssh
+
+
+
+
+
 
 # Create a new folder in blu user as public_html
 mkdir /home2/blu/public_html
